@@ -21,13 +21,13 @@ from employees e
 
 --    Get the details of employees who were hired on or after 1997.
 
-select first_name, last_name  , d.dept_name ,birth_date,  hire_date 
+select first_name, last_name  , d.dept_name ,birth_date
 from employees e
 join dept_emp de  
 on e.emp_no = de.emp_no
 join departments d 
 on de.dept_no = d.dept_no 
-where hire_date > '1997-01-01'
+where extract(year from hire_date) = '1997'
 
 
 
